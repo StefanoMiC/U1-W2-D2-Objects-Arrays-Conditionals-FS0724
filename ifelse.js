@@ -56,3 +56,94 @@ if (student.name === "Mario") {
 
 console.log("lo studente è ammesso?", isAdmitted); // leggere la variabile DOPO un if ci farà vedere il risultato finale dell'operazione
 // se la condizione nell'if non si è verificata la variabile rimarrà a false.
+
+const candidate = {
+  name: "Giovanni",
+  surname: "Storti",
+  age: 44,
+  hasDrivingLicense: true
+};
+
+if (candidate.age > 18) {
+  if (candidate.age < 45) {
+    if (candidate.hasDrivingLicense === true) {
+      alert("complimenti, sei assunto!");
+    } else {
+      alert("peccato, bastava così poco. torna dopo aver conseguito la patente");
+    }
+  } else {
+    console.log("Ci dispiace ma hai superato l'età massima");
+  }
+}
+
+const candidate2 = {
+  name: "Giovanni",
+  surname: "Rossi",
+  age: 14,
+  hasDrivingLicense: true
+};
+
+// avere controlli annidati o sullo stesso livello non è la stessa cosa
+if (candidate2.age > 18) {
+  console.log("Il candidato è maggiorenne");
+} else if (candidate2.age > 18 && candidate2.age < 45) {
+  // con un'età di 80 anni, qui non ci arriveremmo MAI....
+  if (candidate2.hasDrivingLicense === true) {
+    alert("complimenti, sei assunto!");
+  } else {
+    alert("peccato, bastava così poco. torna dopo aver conseguito la patente");
+  }
+} else {
+  console.log("Ci dispiace sei troppo giovane");
+}
+
+const userName = prompt("come ti chiami?");
+
+// if (userName) {
+//   if (userName.toLowerCase() === "mario" || userName.toLowerCase() === "stefano") {
+//     alert("Perfetto, sei promosso!");
+//   } else {
+//     alert("Non ci piaci, vai via");
+//   }
+// } else {
+//   alert("devi inserire un nome valido per procedere");
+// }
+
+// in questo caso il console log si visualizzerà SE e solo SE l'utente avrà inserito un valore nel prompt,
+// in caso di stringa vuota, questa ha accezione negativa, e non si eseguirà il blocco interno
+// (vedi valori falsy)
+// if (userName) {
+//   console.log("il valore inserito è:", userName);
+// }
+
+// combiniamo le due cose
+if (userName) {
+  if (userName.toLowerCase() === "mario" || userName.toLowerCase() === "stefano") {
+    alert("Perfetto, sei promosso!");
+  } else {
+    alert("Non ci piaci, vai via");
+  }
+} else {
+  const userName = prompt("dai... dimmi come ti chiami?");
+  if (userName) {
+    if (userName.toLowerCase() === "mario" || userName.toLowerCase() === "stefano") {
+      alert("Perfetto, questa volta sei promosso!");
+    } else {
+      alert("No no.. non ci siamo proprio");
+    }
+  }
+}
+
+const result = 10 * 0;
+
+// qui stiamo valutando il valore per la sua accezzione intrinseca (se il valore è 0 potrebbe non visualizzarsi mai il console.log)
+if (result) {
+  console.log("il valore ottenuto è", result);
+}
+
+const result2 = 10 * 0;
+
+// questa versione è più sicura, perché visualizzeremmo anche un valore 0
+if (result2 >= 0) {
+  console.log("il valore ottenuto è", result2);
+}
